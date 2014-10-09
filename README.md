@@ -78,9 +78,9 @@ The YARP connections should be made, in a different terminal, as follows (exampl
 	yarpview /online_stereo_calibration/left/out/view &
 	yarpview /online_stereo_calibration/right/out/view &
 	yarpview /online_stereo_calibration/disparity/out/view &
-	yarp connect online_stereo_calibration/image/left/out /online_stereo_calibration/left/out/view
-	yarp connect online_stereo_calibration/image/right/out /online_stereo_calibration/right/out/view
-	yarp connect online_stereo_calibration/image/disparity/out /online_stereo_calibration/disparity/out/view
+	yarp connect online_stereo_calibration/image/left/out /online_stereo_calibration/left/out/view &
+	yarp connect online_stereo_calibration/image/right/out /online_stereo_calibration/right/out/view &
+	yarp connect online_stereo_calibration/image/disparity/out /online_stereo_calibration/disparity/out/view &
 
 3) - to get the 3D coordinates of an image point from the rectified left image
 

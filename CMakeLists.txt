@@ -1,8 +1,8 @@
 SET(PROJECTNAME onlineStereoCalibration)
+PROJECT(${PROJECTNAME})
+
 find_package(OpenCV)
 FIND_PACKAGE(YARP)
-
-PROJECT(${PROJECTNAME})
 
 file(GLOB folder_source src/*.cpp
 			src/threads/*.cpp

@@ -47,23 +47,23 @@ Input port that receives the raw images from the right camera (before image rect
 
 Input port that receives the head encoders
 
-	(input) online_stereo_calibration/head_encoders/state
+	online_stereo_calibration/head_encoders/state
 
 Output port that has the stereo rectified image from the left camera
 
-	(ouput) online_stereo_calibration/image/left/out
+	online_stereo_calibration/image/left/out
 
 Output port that has the stereo rectified image from the right camera
 
-	(ouput) online_stereo_calibration/image/right/out
+	online_stereo_calibration/image/right/out
 
 Output port that has the disparity image (in the left camera reference frame)
 
-	(ouput) online_stereo_calibration/image/disparity/out
+	online_stereo_calibration/image/disparity/out
 
 Input-Output port that receives an image point in the format [U V] taken from the rectified left image (online_stereo_calibration/image/left/out) and sends the 3D coordinates of the point in the format [X Y Z], as seen in the left camera reference frame
 
-	(input-output) online_stereo_calibration/point_request/rpc 
+	online_stereo_calibration/point_request/rpc 
 
 The YARP connections should be made, in a different terminal, as follows (example using default YARP ports names defined in the original config file):
 

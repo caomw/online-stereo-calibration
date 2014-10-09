@@ -47,12 +47,12 @@ The system is ready and waiting for the YARP connections to be made. The system 
 
 The YARP connections should be made, in a different terminal, as follows (example using default YARP ports names defined in the original config file):
 
-1) - to start the online stereo calibration
+1) - to start the online stereo calibration:
 	yarp connect icub/cam/left online_stereo_calibration/image/left
 	yarp connect icub/cam/right online_stereo_calibration/image/right
 	yarp connect icub/head/state:o /head_encoders/state
 
-2) - to see the output rectified images and the disparity images
+2) - to see the output rectified images and the disparity images:
 	yarpview /online_stereo_calibration/left/out/view &
 	yarpview /online_stereo_calibration/right/out/view &
 	yarpview /online_stereo_calibration/disparity/out/view &
@@ -60,7 +60,7 @@ The YARP connections should be made, in a different terminal, as follows (exampl
 	yarp connect online_stereo_calibration/image/right/out /online_stereo_calibration/right/out/view
 	yarp connect online_stereo_calibration/image/disparity/out /online_stereo_calibration/disparity/out/view
 
-3) - to get the 3D coordinates of an image point from the rectified left image
+3) - to get the 3D coordinates of an image point from the rectified left image:
 	yarp rpc online_stereo_calibration/point_request/rpc
 	(example)
 	160 120

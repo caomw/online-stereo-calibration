@@ -1,4 +1,4 @@
-SET(PROJECTNAME onlineStereoMap)
+SET(PROJECTNAME onlineStereoCalibration)
 find_package(OpenCV)
 FIND_PACKAGE(YARP)
 

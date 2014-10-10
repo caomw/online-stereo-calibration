@@ -35,7 +35,7 @@ At this point everything is set to successfuly run the module. Go to ($YOUR_FOLD
 
 	>> ./onlineStereoCalibration
 
-The system is ready and waiting for the YARP connections to be made. The system creates 3 input YARP ports, 3 output YARP ports and 1 input-output YARP port (default names defined in the original config file):
+The system is ready and waiting for the YARP connections to be made. The system creates 3 input YARP ports, 3 output YARP ports and 1 input-output YARP rpc port (default names defined in the original config file):
 
 Input port that receives the raw images from the left camera (before image rectification)
 
@@ -61,7 +61,7 @@ Output port that has the disparity image (in the left camera reference frame)
 
 	online_stereo_calibration/image/disparity/out
 
-Input-Output port that receives an image point in the format [U V] taken from the rectified left image (online_stereo_calibration/image/left/out) and sends the 3D coordinates of the point in the format [X Y Z], as seen in the left camera reference frame
+Input-Output rpc port that receives an image point in the format [U V] taken from the rectified left image (online_stereo_calibration/image/left/out) and sends the 3D coordinates of that point in the format [X Y Z], represented in the left camera reference frame
 
 	online_stereo_calibration/point_request/rpc 
 

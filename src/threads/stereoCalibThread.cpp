@@ -39,6 +39,8 @@ bool stereoCalibThread::threadInit()
     _calibrationStereoCameras.Pn = Mat::zeros(1,1,CV_64F);
 
     _calibrationStereoCameras.Q = Mat::eye(numFixStateParams,numFixStateParams,CV_64F)*encodersTransitionNoise*encodersTransitionNoise;
+
+    return true;
 }
 
 void stereoCalibThread::threadRelease()

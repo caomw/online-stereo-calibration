@@ -8,6 +8,7 @@ worldPointThread::worldPointThread(disparityThread *_disparityThread_, worldPoin
 
 bool worldPointThread::threadInit()
 {
+    return true;
 }
 
 void worldPointThread::threadRelease()

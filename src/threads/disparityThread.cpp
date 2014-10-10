@@ -9,6 +9,7 @@ _imageDisparity(_disparityThread_data_._imageDisparity_initial_parameters), _ima
 
 bool disparityThread::threadInit()
 {
+    return true;
 }
 
 void disparityThread::threadRelease()

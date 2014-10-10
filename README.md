@@ -33,7 +33,7 @@ Go to ($YOUR_FOLDER/online-stereo-calibration) and do:
 
 At this point everything is set to successfuly run the module. Go to ($YOUR_FOLDER/online-stereo-calibration/build) and run:
 
-	>> ./onlineStereoCalibration --from $PATH_TO_YOUR_CONFIG_INI_FILE
+	>> ./onlineStereoCalibration
 
 The system is ready and waiting for the YARP connections to be made. The system creates 3 input YARP ports, 3 output YARP ports and 1 input-output YARP port (default names defined in the original config file):
 

@@ -1,8 +1,8 @@
 # online-stereo-calibration
 
 An online stereo calibration module for the iCub. This system calibrates the eyes of the iCub in an online manner and performs stereo reconstruction during active vision (version and vergence).
-You can find more information about this algorithm in the paper: 
 
+You can find more information about this algorithm in the paper:
 "Markerless Online Stereo Calibration for a Humanoid Robot", Nuno Moutinho et al., 4th International Conference on Development and Learning and on Epigenetic Robotics, 2014
 
 ## Environment

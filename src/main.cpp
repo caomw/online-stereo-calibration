@@ -23,9 +23,8 @@ int main(int argc, char * argv[])
 
     ResourceFinder rf;
     rf.setVerbose(true);
+    rf.setDefaultConfigFile("../conf/stereocalib.ini");
     rf.configure(argc, argv);
-    rf.setDefaultContext("../conf");
-    rf.setDefaultConfigFile("stereocalib.ini");
     module.runModule(rf);
 
     return 0;

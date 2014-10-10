@@ -18,7 +18,7 @@ Now, run:
 
 	git clone https://github.com/vislab-tecnico-lisboa/online-stereo-calibration.git
 
-In ($YOUR_FOLDER/online-stereo-calibration/data) you have a config file stereocalib.ini where you can change the intrinsic parameters of your iCub cameras. You can also change the YARP ports names. The stereocalib_icubSIM.ini is already prepared to be used with the iCub Simulator.
+In ($YOUR_FOLDER/online-stereo-calibration/conf) you have a config file stereocalib.ini where you can change the intrinsic parameters of your iCub cameras. You can also change the YARP ports names. The stereocalib_icubSIM.ini is already prepared to be used with the iCub Simulator.
 
 ## Compilation
 

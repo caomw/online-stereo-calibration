@@ -16,7 +16,7 @@ Open a terminal and navigate to the folder ($YOUR_FOLDER) where you want to down
 
 Now, run:
 
-	git clone https://github.com/vislab-tecnico-lisboa/online-stereo-calibration.git
+	>> git clone https://github.com/vislab-tecnico-lisboa/online-stereo-calibration.git
 
 In ($YOUR_FOLDER/online-stereo-calibration/conf) you have a config file stereocalib.ini where you can change the intrinsic parameters of your iCub cameras. You can also change the YARP ports names. The stereocalib_icubSIM.ini is already prepared to be used with the iCub Simulator.
 
@@ -24,16 +24,16 @@ In ($YOUR_FOLDER/online-stereo-calibration/conf) you have a config file stereoca
 
 Go to ($YOUR_FOLDER/online-stereo-calibration) and do:
 
-	mkdir build
-	cd build
-	cmake ..
-	make
+	>> mkdir build
+	>> cd build
+	>> cmake ..
+	>> make
 
 ## Running
 
 At this point everything is set to successfuly run the module. Go to ($YOUR_FOLDER/online-stereo-calibration/build) and run:
 
-	./onlineStereoCalibration --from $PATH_TO_YOUR_CONFIG_INI_FILE
+	>> ./onlineStereoCalibration --from $PATH_TO_YOUR_CONFIG_INI_FILE
 
 The system is ready and waiting for the YARP connections to be made. The system creates 3 input YARP ports, 3 output YARP ports and 1 input-output YARP port (default names defined in the original config file):
 
@@ -69,25 +69,25 @@ The YARP connections should be made, in a different terminal, as follows (exampl
 
 1) - to start the online stereo calibration
 
-	yarp connect icub/cam/left online_stereo_calibration/image/left
-	yarp connect icub/cam/right online_stereo_calibration/image/right
-	yarp connect icub/head/state:o /head_encoders/state
+	>> yarp connect icub/cam/left online_stereo_calibration/image/left
+	>> yarp connect icub/cam/right online_stereo_calibration/image/right
+	>> yarp connect icub/head/state:o /head_encoders/state
 
 2) - to see the output rectified images and the disparity images
 
-	yarpview /online_stereo_calibration/left/out/view &
-	yarpview /online_stereo_calibration/right/out/view &
-	yarpview /online_stereo_calibration/disparity/out/view &
-	yarp connect online_stereo_calibration/image/left/out /online_stereo_calibration/left/out/view &
-	yarp connect online_stereo_calibration/image/right/out /online_stereo_calibration/right/out/view &
-	yarp connect online_stereo_calibration/image/disparity/out /online_stereo_calibration/disparity/out/view &
+	>> yarpview /online_stereo_calibration/left/out/view &
+	>> yarpview /online_stereo_calibration/right/out/view &
+	>> yarpview /online_stereo_calibration/disparity/out/view &
+	>> yarp connect online_stereo_calibration/image/left/out /online_stereo_calibration/left/out/view &
+	>> yarp connect online_stereo_calibration/image/right/out /online_stereo_calibration/right/out/view &
+	>> yarp connect online_stereo_calibration/image/disparity/out /online_stereo_calibration/disparity/out/view &
 
 3) - to get the 3D coordinates of an image point from the rectified left image
 
-	yarp rpc online_stereo_calibration/point_request/rpc
+	>> yarp rpc online_stereo_calibration/point_request/rpc
 	(example)
-	160 120
-	Response: -0.248432 0.289807 0.666966
+	>> 160 120
+	>> Response: -0.248432 0.289807 0.666966
 
 
 Note: for the points 1) and 2) you can run the scripts located in ($YOUR_FOLDER/online-stereo-calibration/scripts), depending if you are using the real iCub or the iCub Simulator.

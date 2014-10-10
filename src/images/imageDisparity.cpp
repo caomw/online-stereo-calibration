@@ -1,5 +1,5 @@
 #include <opencv/cv.h>
-#include "iCub/images/imageDisparity.h"
+#include "images/imageDisparity.h"
 #include <iostream>
 
 using namespace std;

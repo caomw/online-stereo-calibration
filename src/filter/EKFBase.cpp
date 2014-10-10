@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "iCub/filter/EKFBase.h"
-#include "iCub/filter/Jacobians.h"
+#include "filter/EKFBase.h"
+#include "filter/Jacobians.h"
 
 using namespace cv;
 using namespace std;

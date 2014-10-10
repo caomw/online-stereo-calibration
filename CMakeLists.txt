@@ -11,11 +11,11 @@ file(GLOB folder_source src/*.cpp
 			src/images/*.cpp
 			src/filter/*.cpp
 			src/features/*.cpp)
-file(GLOB folder_header include/iCub/threads/*.h
-			include/iCub/encoders/*.h
-			include/iCub/images/*.h
-			include/iCub/filter/*.h
-			include/iCub/features/*.h)
+file(GLOB folder_header include/threads/*.h
+			include/encoders/*.h
+			include/images/*.h
+			include/filter/*.h
+			include/features/*.h)
 
 SOURCE_GROUP("Source Files" FILES ${folder_source})
 SOURCE_GROUP("Header Files" FILES ${folder_header})

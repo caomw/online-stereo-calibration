@@ -1,3 +1,3 @@
-#include "iCub/filter/Jacobians.h"
+#include "filter/Jacobians.h"
 
 using namespace cv;

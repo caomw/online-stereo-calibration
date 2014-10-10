@@ -1,4 +1,4 @@
-#include "iCub/threads/stereoCalibThread.h"
+#include "threads/stereoCalibThread.h"
 
 stereoCalibThread::stereoCalibThread(stereoCalibThread_data _stereoCalibThread_data_):RateThread(int(_stereoCalibThread_data_.threadPeriod*1000.0)),
 _imagesBase(_stereoCalibThread_data_._imagesBase_initial_parameters)

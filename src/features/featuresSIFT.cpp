@@ -1,6 +1,6 @@
 #include <opencv/cv.h>
 #include <vector>
-#include "iCub/features/featuresSIFT.h"
+#include "features/featuresSIFT.h"
 #include "opencv2/nonfree/features2d.hpp"
 #include <iostream>
 

@@ -1,5 +1,5 @@
-#include "iCub/filter/EKF.h"
-#include "iCub/filter/Jacobians.h"
+#include "filter/EKF.h"
+#include "filter/Jacobians.h"
 #include <iostream>
 
 using namespace cv;

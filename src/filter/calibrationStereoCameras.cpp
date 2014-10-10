@@ -1,7 +1,7 @@
-#include "iCub/filter/calibrationStereoCameras.h"
-#include "iCub/filter/VisualOdometry_Base.h"
-#include "iCub/filter/Jacobians.h"
-#include "iCub/filter/EKFBase.h"
+#include "filter/calibrationStereoCameras.h"
+#include "filter/VisualOdometry_Base.h"
+#include "filter/Jacobians.h"
+#include "filter/EKFBase.h"
 #include <iostream>
 
 using namespace cv;

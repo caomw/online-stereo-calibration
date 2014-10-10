@@ -2,8 +2,8 @@
 #include <yarp/sig/all.h>
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
-#include "iCub/threads/stereoCalibThread.h"
-#include "iCub/threads/stereoCalibModule.h"
+#include "threads/stereoCalibThread.h"
+#include "threads/stereoCalibModule.h"
 
 using namespace std;
 using namespace cv;

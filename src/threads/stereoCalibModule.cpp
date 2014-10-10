@@ -1,4 +1,4 @@
-#include "iCub/threads/stereoCalibModule.h"
+#include "threads/stereoCalibModule.h"
 
     double stereoCalibModule::getPeriod()
     {

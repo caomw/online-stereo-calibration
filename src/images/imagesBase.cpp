@@ -1,4 +1,4 @@
-#include "iCub/images/imagesBase.h"
+#include "images/imagesBase.h"
 
 ProjectiveCamera::ProjectiveCamera(unsigned int resx, unsigned int resy, double fx, double fy, double cx, double cy, double k1, double k2, double k3, double k4, double k5)
 {

@@ -1,4 +1,4 @@
-#include "iCub/threads/worldPointThread.h"
+#include "threads/worldPointThread.h"
 
 worldPointThread::worldPointThread(disparityThread *_disparityThread_, worldPointThread_data _worldPointThread_data_):RateThread(int(_worldPointThread_data_.threadPeriod*1000.0))
 {

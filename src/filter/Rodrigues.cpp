@@ -1,4 +1,4 @@
-#include "iCub/filter/Rodrigues.h"
+#include "filter/Rodrigues.h"
 #include <iostream>
 
 #define PI 3.14159265359

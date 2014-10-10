@@ -1,4 +1,4 @@
-#include "iCub/threads/disparityThread.h"
+#include "threads/disparityThread.h"
 
 disparityThread::disparityThread(stereoCalibThread *_stereoCalibThread_, disparityThread_data _disparityThread_data_):RateThread(int(_disparityThread_data_.threadPeriod*1000.0)),
 _imageDisparity(_disparityThread_data_._imageDisparity_initial_parameters), _imagesBase(_disparityThread_data_._imagesBase_initial_parameters)

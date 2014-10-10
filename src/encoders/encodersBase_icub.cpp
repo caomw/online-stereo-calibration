@@ -1,4 +1,4 @@
-#include "iCub/encoders/encodersBase_icub.h"
+#include "encoders/encodersBase_icub.h"
 
 Mat encodersBase_icub::get(Bottle *rawEncoders)
 {

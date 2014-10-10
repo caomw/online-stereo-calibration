@@ -1,4 +1,4 @@
-#include "iCub/filter/Kinematics.h"
+#include "filter/Kinematics.h"
 #include <iostream>
 
 using namespace cv;

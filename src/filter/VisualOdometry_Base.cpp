@@ -1,6 +1,6 @@
-#include "iCub/filter/VisualOdometry_Base.h"
-#include "iCub/filter/Jacobians.h"
-#include "iCub/filter/EKF.h"
+#include "filter/VisualOdometry_Base.h"
+#include "filter/Jacobians.h"
+#include "filter/EKF.h"
 #include <iostream>
 
 #pragma warning (disable : 4244) //disable conversion double to float

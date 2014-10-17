@@ -14,7 +14,7 @@ featuresSIFT::featuresSIFT(void){}
 
 /// Acquires a number of NumFeat features in the image Img
 /// - the number of features returned could be less or equal to NumFeat
-void featuresSIFT::Apply(const cv::Mat &Img1, const cv::Mat &Img2, std::vector<Feature> &Features1, std::vector<Feature> &Features2, int maximumNumberFeatures)
+void featuresSIFT::Apply(const cv::Mat &Img1, const cv::Mat &Img2, std::vector<Feature> &Features1, std::vector<Feature> &Features2, int maximumNumberFeatures, double matchingThreshold)
 {
     cv::Mat Desc1;
     cv::Mat Desc2;
@@ -32,13 +32,6 @@ void featuresSIFT::Apply(const cv::Mat &Img1, const cv::Mat &Img2, std::vector<F
     std::vector< std::vector< DMatch > > matches;
     std::vector< DMatch > good_matches;
     Ptr<DescriptorMatcher> DM = DescriptorMatcher::create("FlannBased");
-    double th = 0.55;
-
-    /*std::cout << "before" << std::endl;
-    std::cout << Desc1.rows << " " << Desc1.cols << std::endl;
-    std::cout << kp1.size() << std::endl;
-    std::cout << Desc2.rows << " " << Desc2.cols << std::endl;
-    std::cout << kp2.size() << std::endl;//*/
 
     if(kp1.size() > 1 && kp2.size() > 1)
     {
@@ -46,7 +39,7 @@ void featuresSIFT::Apply(const cv::Mat &Img1, const cv::Mat &Img2, std::vector<F
         //std::cout << "after" << std::endl;
         for( int i = 0; i < matches.size(); i++ )
         {
-            if(matches[i][0].distance < th*matches[i][1].distance)
+            if(matches[i][0].distance < matchingThreshold*matches[i][1].distance)
                 good_matches.push_back( matches[i][0]);
         }
 

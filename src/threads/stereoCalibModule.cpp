@@ -126,6 +126,7 @@
 
         //FIlter parameters
         Bottle filter_parameters = rf.findGroup("filter_parameters");
+        _stereoCalibThread_data._calibrationStereoCameras_data.matchingThreshold = filter_parameters.find("matching_threshold").asDouble();
         _stereoCalibThread_data._calibrationStereoCameras_data.minNumberFeatures = filter_parameters.find("minimum_number_of_features").asInt();
         _stereoCalibThread_data._calibrationStereoCameras_data.maxNumberFeatures = filter_parameters.find("maximum_number_of_features").asInt();
         _stereoCalibThread_data._calibrationStereoCameras_data.numFixStateParams = filter_parameters.find("number_of_fixed_state_params").asInt();

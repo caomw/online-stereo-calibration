@@ -8,6 +8,7 @@
 
 struct calibrationStereoCameras_data
 {
+    double matchingThreshold;
     int minNumberFeatures;
     int maxNumberFeatures;
 	int numFixStateParams;

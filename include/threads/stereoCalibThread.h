@@ -61,6 +61,7 @@ protected:
     double image_resize_factor;
 
     //all the data contained in the calibrationStereoCameras_data struct
+    double matchingThreshold;
     int minNumberFeatures;
     int maxNumberFeatures;
 	int numFixStateParams;

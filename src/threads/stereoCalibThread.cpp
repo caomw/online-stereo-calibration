@@ -12,6 +12,7 @@ bool stereoCalibThread::threadInit()
     first_data = true;
 
     //pass the calibrationStereoCameras_data values to the class variables
+    matchingThreshold = _stereoCalibThread_data._calibrationStereoCameras_data.matchingThreshold;
     minNumberFeatures = _stereoCalibThread_data._calibrationStereoCameras_data.minNumberFeatures;
     maxNumberFeatures = _stereoCalibThread_data._calibrationStereoCameras_data.maxNumberFeatures;
 	numFixStateParams = _stereoCalibThread_data._calibrationStereoCameras_data.numFixStateParams;
@@ -97,12 +98,15 @@ void stereoCalibThread::run()
         vector<Point2f> FeaturesLeftPt;
         vector<Point2f> FeaturesRightPt;
 
-        _featuresSIFT.Apply(LeftImage, RightImage, FeaturesLeft, FeaturesRight, maxNumberFeatures);
+        _featuresSIFT.Apply(LeftImage, RightImage, FeaturesLeft, FeaturesRight, maxNumberFeatures, matchingThreshold);
 
+        //Mat OpticalFlowImage = Mat::zeros(LeftImage.rows, LeftImage.cols, CV_8UC1);
         for(int k=0; k<FeaturesLeft.size(); k++)
         {
             FeaturesLeftPt.push_back(FeaturesLeft[k].Point);
             FeaturesRightPt.push_back(FeaturesRight[k].Point);
+
+            //line(OpticalFlowImage, FeaturesLeft[k].Point, FeaturesRight[k].Point, 255);
         }
 
         _calibrationStereoCameras.NumPoints = FeaturesLeft.size();
@@ -197,6 +201,9 @@ void stereoCalibThread::run()
         Mat rot_est;
         Rodrigues(R_est,rot_est);
 
+        /*imshow("OpticalFlowImage", OpticalFlowImage);
+        waitKey(1);//*/
+
         //Write the data back
         mutex.wait();
             _stereoCalibThread_output_data._imagesBase_data = _imagesBase_data;
@@ -216,7 +223,6 @@ stereoCalibThread_output_data stereoCalibThread::getData()
         stereoCalibThread_output_data_aux._imagesBase_data = _stereoCalibThread_output_data._imagesBase_data;
         stereoCalibThread_output_data_aux.R_LeftToRight = _stereoCalibThread_output_data.R_LeftToRight;
         stereoCalibThread_output_data_aux.T_LeftToRight = _stereoCalibThread_output_data.T_LeftToRight;
-
     mutex.post();
 
     return stereoCalibThread_output_data_aux;//*/

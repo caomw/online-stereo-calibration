@@ -34,6 +34,8 @@ struct stereoCalibThread_output_data
     imagesBase_data _imagesBase_data;
     Mat R_LeftToRight;
     Mat T_LeftToRight;
+    Mat Tr_LeftCamToLeftPan;
+    Mat Tr_RightCamToRightPan;
 };
 
 class stereoCalibThread:public RateThread {

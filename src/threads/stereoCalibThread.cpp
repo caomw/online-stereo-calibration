@@ -201,6 +201,17 @@ void stereoCalibThread::run()
         Mat rot_est;
         Rodrigues(R_est,rot_est);
 
+        //Transformation from the Left Cam to the Left Pan joint - removing the mounting errors
+        Mat Tr_LeftCamToLeftPan = AuxKinTr.LeftPanRefFrame_To_LeftCamRefFrame.inv();
+        Tr_LeftCamToLeftPan.at<double>(0,3) = Tr_LeftCamToLeftPan.at<double>(0,3)*baseline;
+        Tr_LeftCamToLeftPan.at<double>(1,3) = Tr_LeftCamToLeftPan.at<double>(1,3)*baseline;
+        Tr_LeftCamToLeftPan.at<double>(2,3) = Tr_LeftCamToLeftPan.at<double>(2,3)*baseline;
+
+        Mat Tr_RightCamToRightPan = AuxKinTr.RightPanRefFrame_To_RightCamRefFrame.inv();
+        Tr_RightCamToRightPan.at<double>(0,3) = Tr_RightCamToRightPan.at<double>(0,3)*baseline;
+        Tr_RightCamToRightPan.at<double>(1,3) = Tr_RightCamToRightPan.at<double>(1,3)*baseline;
+        Tr_RightCamToRightPan.at<double>(2,3) = Tr_RightCamToRightPan.at<double>(2,3)*baseline;
+
         /*imshow("OpticalFlowImage", OpticalFlowImage);
         waitKey(1);//*/
 
@@ -209,6 +220,8 @@ void stereoCalibThread::run()
             _stereoCalibThread_output_data._imagesBase_data = _imagesBase_data;
             _stereoCalibThread_output_data.R_LeftToRight = R_est;
             _stereoCalibThread_output_data.T_LeftToRight = t_est;
+            _stereoCalibThread_output_data.Tr_LeftCamToLeftPan = Tr_LeftCamToLeftPan.clone();
+            _stereoCalibThread_output_data.Tr_RightCamToRightPan = Tr_RightCamToRightPan.clone();
         mutex.post();
 	}
 
@@ -223,6 +236,8 @@ stereoCalibThread_output_data stereoCalibThread::getData()
         stereoCalibThread_output_data_aux._imagesBase_data = _stereoCalibThread_output_data._imagesBase_data;
         stereoCalibThread_output_data_aux.R_LeftToRight = _stereoCalibThread_output_data.R_LeftToRight;
         stereoCalibThread_output_data_aux.T_LeftToRight = _stereoCalibThread_output_data.T_LeftToRight;
+        stereoCalibThread_output_data_aux.Tr_LeftCamToLeftPan = _stereoCalibThread_output_data.Tr_LeftCamToLeftPan;
+        stereoCalibThread_output_data_aux.Tr_RightCamToRightPan = _stereoCalibThread_output_data.Tr_RightCamToRightPan;
     mutex.post();
 
     return stereoCalibThread_output_data_aux;//*/

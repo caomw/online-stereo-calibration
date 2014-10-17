@@ -26,6 +26,8 @@ void worldPointThread::run()
     disparityThread_output_data _disparityThread_output_data = _disparityThread->getData();
     Mat Q = _disparityThread_output_data.Q;
     Mat disparityValues = _disparityThread_output_data.disparityValues;
+    Mat Tr_LeftCamToLeftPan = _disparityThread_output_data.Tr_LeftCamToLeftPan;
+    Mat Tr_RightCamToRightPan = _disparityThread_output_data.Tr_RightCamToRightPan;
 
     //get the coordinates from the rpc port
     int BottleSize = cmd.size();
@@ -48,9 +50,11 @@ void worldPointThread::run()
     Mat triPoint = Q*Point;
     triPoint = triPoint/triPoint.at<double>(3,0);
 
-    response.addDouble(triPoint.at<double>(0,0));
-    response.addDouble(triPoint.at<double>(1,0));
-    response.addDouble(triPoint.at<double>(2,0));
+    Mat leftPan_triPoint = Tr_LeftCamToLeftPan*triPoint;
+
+    response.addDouble(leftPan_triPoint.at<double>(0,0));
+    response.addDouble(leftPan_triPoint.at<double>(1,0));
+    response.addDouble(leftPan_triPoint.at<double>(2,0));
 
     _worldPointThread_data.rpcPointRequestPort->reply(response);//*/
 }

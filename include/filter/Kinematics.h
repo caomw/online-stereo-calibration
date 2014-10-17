@@ -10,6 +10,8 @@ struct KinTransforms{
 	cv::Mat UnifiedRefFrame_To_LeftCamRefFrame;
 	cv::Mat UnifiedRefFrame_To_RightCamRefFrame;
 	cv::Mat LeftCamRefFrame_To_RightCamRefFrame;
+	cv::Mat LeftPanRefFrame_To_LeftCamRefFrame;
+	cv::Mat RightPanRefFrame_To_RightCamRefFrame;
 };
 
 

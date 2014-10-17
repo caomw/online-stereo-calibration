@@ -27,6 +27,8 @@ struct disparityThread_output_data
 {
     Mat disparityValues;
     Mat Q;
+    Mat Tr_LeftCamToLeftPan;
+    Mat Tr_RightCamToRightPan;
 };
 
 class disparityThread:public RateThread {

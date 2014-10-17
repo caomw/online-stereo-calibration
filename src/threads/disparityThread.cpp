@@ -34,6 +34,8 @@ void disparityThread::run()
         mutex.wait();
             _disparityThread_output_data.disparityValues = Disp.DisparityValues;
             _disparityThread_output_data.Q = Q;
+            _disparityThread_output_data.Tr_LeftCamToLeftPan = _stereoCalibThread_output_data.Tr_LeftCamToLeftPan;
+            _disparityThread_output_data.Tr_RightCamToRightPan = _stereoCalibThread_output_data.Tr_RightCamToRightPan;
         mutex.post();
 
         //send images to the ports
@@ -71,6 +73,8 @@ disparityThread_output_data disparityThread::getData()
     mutex.wait();
         _disparityThread_output_data_aux.disparityValues = _disparityThread_output_data.disparityValues;
         _disparityThread_output_data_aux.Q = _disparityThread_output_data.Q;
+        _disparityThread_output_data_aux.Tr_LeftCamToLeftPan = _disparityThread_output_data.Tr_LeftCamToLeftPan;
+        _disparityThread_output_data_aux.Tr_RightCamToRightPan = _disparityThread_output_data.Tr_RightCamToRightPan;
     mutex.post();
 
     return _disparityThread_output_data_aux;

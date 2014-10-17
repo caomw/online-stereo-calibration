@@ -84,8 +84,8 @@ void Kinematics_icubEyes::Apply(cv::Mat Encoders, KinTransforms &KinTr)
 
     Mat CenterToLeft = T_LeftEye_Rotation.clone()*T_Pan_To_Cam.clone()*T_LeftEye_Pan.clone()*T_Baseline_To_Left.clone();
     Mat CenterToRight = T_RightEye_Rotation.clone()*T_Pan_To_Cam.clone()*T_RightEye_Pan.clone()*T_Baseline_To_Right.clone();
-    Mat LeftPanToLeftCam = T_LeftEye_Rotation.clone()*T_Pan_To_Cam.clone();
-    Mat RightPanToLeftCam = T_RightEye_Rotation.clone()*T_Pan_To_Cam.clone();//*/
+    Mat LeftPanToLeftCam = T_LeftEye_Rotation.clone()*T_Pan_To_Cam.clone()*T_LeftEye_Pan.clone();
+    Mat RightPanToLeftCam = T_RightEye_Rotation.clone()*T_Pan_To_Cam.clone()*T_RightEye_Pan.clone();//*/
 
     KinTr.UnifiedRefFrame_To_LeftCamRefFrame = CenterToLeft.clone();
     KinTr.UnifiedRefFrame_To_RightCamRefFrame = CenterToRight.clone();

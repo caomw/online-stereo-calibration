@@ -20,7 +20,7 @@ void featuresSIFT::Apply(const cv::Mat &Img1, const cv::Mat &Img2, std::vector<F
     cv::Mat Desc2;
     std::vector <cv::KeyPoint> kp1, kp2;
 
-    SiftFeatureDetector detector(maximumNumberFeatures);
+    SiftFeatureDetector detector(maximumNumberFeatures, 3, 0.01);
     SiftDescriptorExtractor extractor;
 
     detector.detect(Img1, kp1);

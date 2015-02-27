@@ -33,28 +33,40 @@ void worldPointThread::run()
     int BottleSize = cmd.size();
     std::vector<double> DataVec;
 
-    for(int i=0; i<BottleSize; i++)
+    if(BottleSize == 2) //point from left image only
     {
-        DataVec.push_back(cmd.get(i).asDouble());
+        for(int i=0; i<BottleSize; i++)
+        {
+            DataVec.push_back(cmd.get(i).asDouble());
+        }
+
+        Mat rawPoint = Mat(DataVec).clone();
+        double x = rawPoint.at<double>(0,0);
+        double y = rawPoint.at<double>(1,0);
+
+        Mat Point = Mat::ones(4,1,CV_64F);
+        Point.at<double>(0,0) = x;
+        Point.at<double>(1,0) = y;
+        Point.at<double>(2,0) = -disparityValues.at<double>(y,x);
+
+        Mat triPoint = Q*Point;
+        triPoint = triPoint/triPoint.at<double>(3,0);
+
+        Mat leftPan_triPoint = Tr_LeftCamToLeftPan*triPoint;
+
+        if(isnan(leftPan_triPoint.at<double>(0,0)) || isnan(leftPan_triPoint.at<double>(1,0)) || isnan(leftPan_triPoint.at<double>(2,0)))
+        {
+            response.addDouble(0.0);
+            response.addDouble(0.0);
+            response.addDouble(0.0);
+        }
+        else
+        {
+            response.addDouble(leftPan_triPoint.at<double>(0,0));
+            response.addDouble(leftPan_triPoint.at<double>(1,0));
+            response.addDouble(leftPan_triPoint.at<double>(2,0));
+        }
+
+        _worldPointThread_data.rpcPointRequestPort->reply(response);//*/
     }
-
-    Mat rawPoint = Mat(DataVec).clone();
-    double x = rawPoint.at<double>(0,0);
-    double y = rawPoint.at<double>(1,0);
-
-    Mat Point = Mat::ones(4,1,CV_64F);
-    Point.at<double>(0,0) = x;
-    Point.at<double>(1,0) = y;
-    Point.at<double>(2,0) = -disparityValues.at<double>(y,x);
-
-    Mat triPoint = Q*Point;
-    triPoint = triPoint/triPoint.at<double>(3,0);
-
-    Mat leftPan_triPoint = Tr_LeftCamToLeftPan*triPoint;
-
-    response.addDouble(leftPan_triPoint.at<double>(0,0));
-    response.addDouble(leftPan_triPoint.at<double>(1,0));
-    response.addDouble(leftPan_triPoint.at<double>(2,0));
-
-    _worldPointThread_data.rpcPointRequestPort->reply(response);//*/
 }

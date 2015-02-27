@@ -66,7 +66,7 @@ Output port that has the disparity image (in the left camera reference frame)
 
 Input-Output rpc port that receives an image point in the format [U V] taken from the rectified left image (online_stereo_calibration/image/left/out) and sends the 3D coordinates of that point in the format [X Y Z], represented in the left camera reference frame
 
-	online_stereo_calibration/point_request/rpc 
+	/online_stereo_calibration/point_request/rpc 
 
 The YARP connections should be made, in a different terminal, as follows (example using default YARP ports names defined in the original config file):
 
